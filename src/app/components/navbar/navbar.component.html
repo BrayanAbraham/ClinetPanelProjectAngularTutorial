@@ -16,7 +16,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarMain">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLoggedin">
           <a
             class="nav-link"
             [routerLink]="['/']"
@@ -26,7 +26,7 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item" *ngIf="!isLoggedin">
+        <li class="nav-item" *ngIf="!isLoggedin && showRegister">
           <a
             class="nav-link"
             [routerLink]="['/register']"
