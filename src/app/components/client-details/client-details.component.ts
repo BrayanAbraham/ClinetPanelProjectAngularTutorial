@@ -13,7 +13,7 @@ export class ClientDetailsComponent implements OnInit {
   id: string;
   client: Client;
   hasBalance: boolean = false;
-  showBalanceUpdateIput: boolean = false;
+  showBalanceUpdateInput: boolean = false;
 
   constructor(
     private clientService: ClientService,
@@ -34,6 +34,14 @@ export class ClientDetailsComponent implements OnInit {
         }
       }
       this.client = client;
+    });
+  }
+
+  updateBalance(id: string) {
+    this.clientService.updateClient(this.client);
+    this.flashMessage.show('Balance Updated', {
+      cssClass: 'alert-success',
+      timeout: 5000,
     });
   }
 }
